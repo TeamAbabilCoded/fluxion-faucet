@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #0f172a;
+      color: white;
+      padding: 20px;
+    }
+    h2 {
+      color: #60a5fa;
+    }
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    th {
+      background-color: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <h2>👨‍💼 Admin Dashboard</h2>
+
+  <div class="card">
+    <h3>👥 Data User & Saldo</h3>
+    <table>
+      <tr><th>ID</th><th>Poin</th></tr>
+      {% for uid, poin in data.items() %}
+        <tr><td>{{ uid }}</td><td>{{ poin }}</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>🧾 Riwayat Klaim</h3>
+    {% for uid, logs in riwayat.items() %}
+      <p><strong>{{ uid }}</strong></p>
+      <ul>
+        {% for log in logs %}
+          <li>{{ log.amount }} dari {{ log.type }} - {{ log.time }}</li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </div>
+
+  <div class="card">
+    <h3>💸 Riwayat Penarikan</h3>
+    {% for uid, logs in penarikan.items() %}
+      <p><strong>{{ uid }}</strong></p>
+      <ul>
+        {% for log in logs %}
+          <li>{{ log.amount }} poin - {{ log.time }}</li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </div>
+</body>
+</html>

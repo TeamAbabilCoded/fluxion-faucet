@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-box {
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #3b82f6;
+    }
+    input[type=password], input[type=submit] {
+      padding: 10px;
+      width: 100%;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    input[type=submit] {
+      background-color: #3b82f6;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form class="login-box" method="post">
+    <h2>Admin Login</h2>
+    {% if error %}
+      <p style="color:red;">{{ error }}</p>
